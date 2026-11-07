@@ -6,9 +6,8 @@ import {
   Zap, 
   Shield, 
   Radio, 
-  Hand, 
+  Hand,
   Activity,
-  TrendingDown,
   Eye,
   Cpu
 } from 'lucide-react';
