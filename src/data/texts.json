@@ -1,0 +1,779 @@
+
+{
+"arvis": {
+  "es": {
+    "hero": {
+      "badge": "Visión Computacional Contextual v4.0 · Edge Ready",
+      "title": "Navegación Autónoma",
+      "highlight": "con Conciencia de Seguridad",
+      "subtitle": "ARVIS convierte la visión computacional en navegación segura. Permite que los robots no solo detectan obstáculos, sino que entienden el contexto y reaccionan con fluidez, todo usando una cámara de bajo costo en lugar de sensores LiDAR.",
+      "ctaPrimary": "Explorar el Pipeline de IA",
+      "ctaSecondary": "Ver en GitHub"
+    },
+    "challenge": {
+      "title": "El Desafío de la Navegación Autónoma",
+      "subtitle": "Los robots tradicionales dependen de sensores costosos y reglas binarias rígidas, fallando en entornos dinámicos.",
+      "items": [
+        {
+          "problem": "Sensores LiDAR costosos ($3K-$5K)",
+          "solution": "Visión monocular híbrida de bajo costo",
+          "impact": "Ahorro del 95% en hardware"
+        },
+        {
+          "problem": "Evasión binaria (stop/go) brusca",
+          "solution": "Campos Potenciales con fuerza tangencial",
+          "impact": "Trayectorias fluidas, 0 congelamientos"
+        },
+        {
+          "problem": "Sin comprensión del contexto",
+          "solution": "MediaPipe: gestos, caídas y dirección de mirada",
+          "impact": "Interacción humano-robot natural"
+        },
+        {
+          "problem": "Ruido en detecciones (frenados fantasma)",
+          "solution": "Filtro de Kalman 2D con Δt real",
+          "impact": "Predicción de velocidad precisa y suave"
+        },
+        {
+          "problem": "Reanudación automática peligrosa",
+          "solution": "E-STOP industrial con bloqueo y reset manual",
+          "impact": "Cumplimiento de seguridad ISO 13850"
+        },
+        {
+          "problem": "Aislamiento del sistema (Caja negra)",
+          "solution": "MQTT Bidireccional + Dashboard Web en vivo",
+          "impact": "Supervisión remota y control total"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "Los 5 Pilares de ARVIS",
+      "subtitle": "Una arquitectura modular que cubre todo el ciclo de percepción-decisión-acción.",
+      "items": [
+        {
+          "icon": "Eye",
+          "title": "Percepción Multimodal",
+          "desc": "YOLOv8 + MediaPipe para detectar objetos, estimar pose y reconocer 10+ gestos humanos en tiempo real.",
+          "phase": "Entrada de datos"
+        },
+        {
+          "icon": "Brain",
+          "title": "Inteligencia Predictiva",
+          "desc": "Filtro de Kalman 2D y cálculo de Time To Collision (TTC) para anticipar movimientos, no solo reaccionar.",
+          "phase": "Procesamiento"
+        },
+        {
+          "icon": "Shield",
+          "title": "Seguridad con Histéresis",
+          "desc": "Evaluación de riesgo multiclase (humano vs. mascota) con umbrales adaptativos y E-STOP de bloqueo manual.",
+          "phase": "Decisión"
+        },
+        {
+          "icon": "Cpu",
+          "title": "Control Concurrente",
+          "desc": "Arquitectura de hilos separados y Hardware Abstraction Layer (HAL) para que la visión nunca se congele.",
+          "phase": "Acción"
+        },
+        {
+          "icon": "Radio",
+          "title": "Conectividad Bidireccional",
+          "desc": "Puente WES agnóstico vía MQTT (inspirado en VDA5050) y Dashboard de telemetría en Streamlit.",
+          "phase": "Supervisión"
+        }
+      ]
+    },
+    "metrics": {
+      "title": "El Impacto en Números",
+      "subtitle": "Resultados reales de pruebas de rendimiento y estabilidad del sistema.",
+      "items": [
+        {
+          "value": "9-10",
+          "label": "FPS en CPU",
+          "sub": "Intel i5/i7 (sin GPU dedicada)"
+        },
+        {
+          "value": "<100ms",
+          "label": "Latencia YOLOv8n",
+          "sub": "Inferencia optimizada"
+        },
+        {
+          "value": "<20%",
+          "label": "Error de Profundidad",
+          "sub": "En rango de 1 a 3 metros"
+        },
+        {
+          "value": "0",
+          "label": "Oscilaciones de Estado",
+          "sub": "Gracias a la lógica de histéresis"
+        }
+      ]
+    },
+    "value": {
+      "title": "Impacto Real en tu Operación",
+      "subtitle": "ARVIS no es solo un script de visión; es una plataforma de seguridad robótica lista para producción.",
+      "items": [
+        {
+          "icon": "Briefcase",
+          "role": "Para Directores de Operaciones (COO)",
+          "desc": "Mayor throughput y fluidez en la navegación.",
+          "benefits": [
+            "Reducción del 25% en paradas innecesarias gracias a la evasión fluida.",
+            "Detección proactiva de peligros antes de que ocurra el contacto.",
+            "Interacción natural con trabajadores mediante gestos, sin controles remotos."
+          ]
+        },
+        {
+          "icon": "DollarSign",
+          "role": "Para Directores Financieros (CFO)",
+          "desc": "Democratización de la robótica autónoma segura.",
+          "benefits": [
+            "Ahorro de $3,000-$5,000 por robot al eliminar la dependencia de LiDAR.",
+            "Mismo código ejecutable en PC, Raspberry Pi o NVIDIA Jetson (HAL).",
+            "Reducción de costos de mantenimiento por menor desgaste de motores (menos frenados bruscos)."
+          ]
+        },
+        {
+          "icon": "Monitor",
+          "role": "Para Gerentes de TI",
+          "desc": "Arquitectura moderna, desacoplada y escalable.",
+          "benefits": [
+            "Pipeline de visión separado del control de hardware (colas thread-safe).",
+            "Integración 'Plug & Play' con cualquier WMS/WES existente vía MQTT.",
+            "Telemetría completa (FPS, latencias, riesgo) para monitoreo de salud del sistema."
+          ]
+        },
+        {
+          "icon": "Wrench",
+          "role": "Para Gerentes de Mantenimiento",
+          "desc": "Visibilidad total del rendimiento en tiempo real.",
+          "benefits": [
+            "Dashboard web con gráficos históricos de latencia y FPS.",
+            "Detección temprana de cuellos de botella de rendimiento (ej. sobrecalentamiento).",
+            "Logs estructurados para debugging post-incidente."
+          ]
+        }
+      ]
+    },
+    "usp": {
+      "title": "¿Por qué ARVIS es único?",
+      "subtitle": "Combinamos percepción de vanguardia con principios matemáticos de robótica clásica.",
+      "items": [
+        {
+          "icon": "Eye",
+          "title": "Conciencia Contextual",
+          "desc": "No solo detecta 'algo'. Sabe si es un humano (gestos), una mascota (impredecible) o un objeto estático."
+        },
+        {
+          "icon": "Activity",
+          "title": "Planificación Reactiva Fluida",
+          "desc": "Campos Potenciales Artificiales (APF) con resolución de mínimos locales (fuerza de vórtice) para esquivar sin congelarse."
+        },
+        {
+          "icon": "Shield",
+          "title": "Seguridad Industrial Real",
+          "desc": "Histéresis para evitar oscilaciones y E-STOP que requiere reseteo manual explícito, cumpliendo normas de seguridad."
+        },
+        {
+          "icon": "Cpu",
+          "title": "Hardware Agnostic (HAL)",
+          "desc": "Desarrolla y prueba en tu laptop con RobotMock, y despliega en Raspberry Pi o Jetson sin cambiar la lógica de IA."
+        }
+      ]
+    },
+    "aiPipeline": {
+      "title": "Del Píxel a la Acción Segura",
+      "subtitle": "Un pipeline concurrente de baja latencia que transforma datos brutos en maniobras de evasión matemáticamente probadas.",
+      "steps": [
+        {
+          "icon": "Eye",
+          "title": "1. Percepción Multimodal",
+          "tech": "YOLOv8 + MediaPipe",
+          "desc": "Detección de 80+ clases con IDs persistentes (ByteTrack). MediaPipe extrae 33 landmarks para analizar gestos y detectar caídas."
+        },
+        {
+          "icon": "Activity",
+          "title": "2. Predicción Cinemática",
+          "tech": "Filtro de Kalman 2D",
+          "desc": "Suaviza el ruido de las detecciones. Calcula la velocidad real usando Δt real para predecir la posición futura y el Time To Collision (TTC)."
+        },
+        {
+          "icon": "Brain",
+          "title": "3. Planificación Reactiva",
+          "tech": "Campos Potenciales (APF)",
+          "desc": "Trata el destino como atracción y los obstáculos como repulsión. Incluye fuerza tangencial (vórtice) para resolver mínimos locales y esquivar fluidamente."
+        },
+        {
+          "icon": "Shield",
+          "title": "4. Seguridad con Histéresis",
+          "tech": "RiskAnalyzer + E-STOP",
+          "desc": "Umbrales adaptativos por clase. La histéresis elimina el 'baile' del robot. El E-STOP industrial requiere reseteo manual (ISO 13850)."
+        }
+      ]
+    },
+    "industries": {
+      "title": "Casos de Uso Reales",
+      "subtitle": "Cómo ARVIS transforma la navegación en entornos dinámicos y no estructurados.",
+      "items": [
+        {
+          "icon": "Package",
+          "name": "Logística y Almacenes",
+          "desc": "Evasión fluida de trabajadores en pasillos sin detener el throughput. El robot cede el paso si el trabajador levanta la mano.",
+          "benefit": "+25% de eficiencia operativa"
+        },
+        {
+          "icon": "Heart",
+          "name": "Salud y Hospitales",
+          "desc": "Detección de caídas de pacientes en <200ms y activación inmediata de protocolos de emergencia. Coexistencia segura con perros de terapia.",
+          "benefit": "Detección temprana que salva vidas"
+        },
+     
+        {
+          "icon": "ShoppingCart",
+          "name": "Retail y Tiendas",
+          "desc": "Navegación en espacios no estructurados entre carros de compra y clientes, usando segmentación para entender formas irregulares.",
+          "benefit": "Navegación sin marcadores en el suelo"
+        },
+        {
+          "icon": "Truck",
+          "name": "Last-Mile Delivery",
+          "desc": "Navegación 'educada' en aceras. El robot entiende gestos de peatones (STOP_HAND, POINTING) y aplica márgenes de seguridad extra para mascotas.",
+          "benefit": "Mayor aceptación pública y seguridad"
+        },
+           {
+  "icon": "ConciergeBell",
+  "name": "Recepción y Guías Interactivos",
+  "desc": "Detección de intención de acercamiento y seguimiento de múltiples visitantes. El robot interpreta gestos de señalización y saludos para guiar personas por entornos concurridos, manteniendo distancia social y adaptando la ruta en tiempo real.",
+  "benefit": "Interacción natural sin infraestructura adicional"
+},
+{
+  "icon": "Home",
+  "name": "Hogar y Robótica Doméstica",
+  "desc": "Navegación robusta entre juguetes, mascotas y niños en movimiento. Segmentación de objetos irregulares y detección de anomalías para patrullaje de seguridad, con márgenes de seguridad adaptativos para seres vivos.",
+  "benefit": "Adaptación a entornos domésticos cambiantes"
+}
+      ]
+    },
+    "comparison": {
+      "title": "ARVIS vs. Soluciones del Mercado",
+      "subtitle": "Por qué nuestra aproximación de software supera a las dependencias de hardware costoso.",
+      "items": [
+        {
+          "feature": "Costo de Hardware de Sensores",
+          "competitor": "$3,000 - $5,000 (LiDAR)",
+          "arvis": "$20 - $50 (Cámara RGB)"
+        },
+        {
+          "feature": "Comprensión del Contexto",
+          "competitor": "Solo 'obstáculo sí/no'",
+          "arvis": "Multimodal: Persona, Mascota, Gesto, Caída"
+        },
+        {
+          "feature": "Toma de Decisiones",
+          "competitor": "Reglas if/else rígidas",
+          "arvis": "Predictiva (Kalman) y fluida (Campos Potenciales)"
+        },
+        {
+          "feature": "Interacción Humano-Robot",
+          "competitor": "Botones físicos o pantallas",
+          "arvis": "Natural (reconocimiento de gestos y mirada)"
+        },
+        {
+          "feature": "Filosofía de Seguridad",
+          "competitor": "Reanudación automática peligrosa",
+          "arvis": "E-STOP con bloqueo manual y histéresis"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "Telemetría y Control Bidireccional",
+      "subtitle": "El robot no es una caja negra. Supervisa y controla cada aspecto de su operación en tiempo real.",
+      "features": [
+        { "icon": "Radio", "title": "MQTT Estándar (VDA5050-inspired)", "desc": "Publica estado y escucha comandos. Integrable con SAP, Oracle o cualquier WES sin modificar el código del robot." },
+        { "icon": "Activity", "title": "Dashboard Web en Vivo", "desc": "Visualización de KPIs críticos: Nivel de Riesgo, Distancia, FPS, Latencias de YOLO/MediaPipe y registro de eventos." },
+        { "icon": "Shield", "title": "Control Remoto (Override)", "desc": "Botones de EMERGENCY_STOP, RESUME y RETURN_HOME para que el operador tome el control ante cualquier anomalía." },
+        { "icon": "FileSearch", "title": "Auditoría y Detección Temprana", "desc": "Gráficos de evolución histórica que permiten detectar cuellos de botella de rendimiento antes de que afecten la seguridad." }
+      ]
+    },
+    "validation": {
+      "title": "Resultados de Pruebas Reales",
+      "subtitle": "Métricas validadas en escenarios de navegación dinámica.",
+      "featured": {
+        "label": "PRUEBA DESTACADA",
+        "title": "Evasión de Persona Caminando",
+        "problem": "Persona caminando hacia el robot a 1.5m/s en un pasillo.",
+        "solution": "Detección a 2.5m, frenado suave a 1.5m (Kalman), y evasión lateral fluida a 1.2m usando Campos Potenciales con fuerza de vórtice.",
+        "value": "0 colisiones, tiempo de reacción 120ms, trayectoria orgánica"
+      },
+      "items": [
+        {
+          "number": "02",
+          "icon": "Heart",
+          "title": "Detección de Caída",
+          "problem": "Persona simulando caída frente al robot.",
+          "solution": "MediaPipe detecta el ángulo anormal del torso. Activación inmediata de EMERGENCY_STOP y alerta en logs.",
+          "value": "100% de detección en 50 pruebas, <200ms de reacción"
+        },
+        {
+          "number": "03",
+          "icon": "Hand",
+          "title": "Interacción por Gestos",
+          "problem": "Usuario bloqueando el camino y señalando (POINTING) para que el robot ceda el paso.",
+          "solution": "Reconocimiento del gesto en 200ms. El robot evalúa el contexto y ejecuta una evasión lateral automática.",
+          "value": "85% de precisión en reconocimiento de gestos en tiempo real"
+        },
+        {
+          "number": "04",
+          "icon": "Cat",
+          "title": "Coexistencia con Mascotas",
+          "problem": "Gato cruzando el camino del robot a corta distancia.",
+          "solution": "Clasificación como 'mascota'. El RiskAnalyzer aplica umbrales conservadores, activando EMERGENCY_STOP inmediato.",
+          "value": "100% de detección, tiempo de reacción 80ms"
+        }
+      ]
+    },
+    "whyArvis": {
+      "title": "Arquitectura Híbrida Concurrente",
+      "subtitle": "Diseñado para la robustez, no solo para la demostración.",
+      "desc": "Separamos estrictamente la Percepción/Decisión (hilo principal de alta prioridad) del Control de Hardware (hilo secundario) y la Telemetría (hilo de fondo asíncrono).",
+      "dimensions": [
+        {
+          "icon": "Cpu",
+          "title": "Colas Thread-Safe",
+          "desc": "La visión nunca se congela esperando al hardware. Comunicación mediante queue.Queue para evitar condiciones de carrera."
+        },
+        {
+          "icon": "Shield",
+          "title": "Hardware Abstraction Layer (HAL)",
+          "desc": "Interfaz unificada (go, stop, turn) implementada por RobotMock (con latencia simulada) y lista para RobotReal (GPIO/Serial)."
+        },
+        {
+          "icon": "Radio",
+          "title": "Pub/Sub Desacoplado",
+          "desc": "El robot no sabe quién lo controla. WES, Dashboard o scripts externos se suscriben a sus tópicos MQTT sin modificar su núcleo."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Listo para el Futuro (ROS 2 / Edge)",
+          "desc": "La separación de responsabilidades facilita la migración a nodos de ROS 2 y la optimización con TensorRT/ONNX para Jetson."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para dotar de conciencia a tu robot?",
+      "description": "De la percepción a la acción segura, con conciencia contextual. Despliegue en Edge Computing listo para producción.",
+      "btnGithub": "Ver Código en GitHub",
+      "btnDocs": "Documentación de Arquitectura",
+      "btnContact": "Contáctame",
+      "trustText": "¿Quieres ver una demo en vivo del pipeline de IA o discutir una integración con tu flota? Escríbeme directamente."
+    },
+    "footer": {
+      "brandName": "ARVIS",
+      "brandTagline": "Autonomous Robot Vision & Intelligence System",
+      "mission": "Sistema de referencia para navegación autónoma segura, combinando percepción multimodal, planificación matemática y protocolos de comunicación industrial.",
+      "sustainabilityBadge": "Edge Ready ",
+      "navTitle": "Explorar",
+      "navHome": "Inicio",
+      "navPipeline": "Pipeline de IA",
+      "navDashboard": "Dashboard",
+      "resourcesTitle": "Recursos",
+      "resourceDocs": "Documentación Técnica",
+      "resourceAiBreakdown": "Desglose de IA",
+      "connectTitle": "Conecta",
+      "locationPrefix": "Desarrollado por",
+      "locationCity": "Victor Camacaro",
+      "locationSuffix": "Ingeniería de Software Robótico",
+      "email": "victorcamacaro253@gmail.com",
+      "copyright": "© {year} Victor Camacaro. Todos los derechos reservados.",
+      "devNotePrefix": "Construido con",
+      "devNoteSuffix": "Python, OpenCV, YOLOv8, MediaPipe y MQTT"
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "Contextual Computer Vision v4.0 · Edge Ready",
+      "title": "Autonomous Navigation",
+      "highlight": "with Safety Awareness",
+      "subtitle": "ARVIS turns computer vision into safe navigation. It enables robots don't just detect obstacles; they understand context and react fluidly, all using a low-cost camera instead of LiDAR sensors.",
+      "ctaPrimary": "Explore the AI Pipeline",
+      "ctaSecondary": "View on GitHub"
+    },
+    "challenge": {
+      "title": "The Autonomous Navigation Challenge",
+      "subtitle": "Traditional robots rely on costly sensors and rigid binary rules, failing in dynamic environments.",
+      "items": [
+        {
+          "problem": "Costly LiDAR sensors ($3K-$5K)",
+          "solution": "Low-cost hybrid monocular vision",
+          "impact": "95% hardware cost savings"
+        },
+        {
+          "problem": "Brutal binary evasion (stop/go)",
+          "solution": "Potential Fields with tangential force",
+          "impact": "Fluid trajectories, 0 freezing"
+        },
+        {
+          "problem": "No context comprehension",
+          "solution": "MediaPipe: gestures, falls, and gaze direction",
+          "impact": "Natural human-robot interaction"
+        },
+        {
+          "problem": "Detection noise (phantom braking)",
+          "solution": "2D Kalman Filter with real Δt",
+          "impact": "Smooth and precise velocity prediction"
+        },
+        {
+          "problem": "Dangerous automatic resumption",
+          "solution": "Industrial E-STOP with manual lock and reset",
+          "impact": "ISO 13850 safety compliance"
+        },
+        {
+          "problem": "System isolation (Black box)",
+          "solution": "Bidirectional MQTT + Live Web Dashboard",
+          "impact": "Remote supervision and total control"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "The 5 Pillars of ARVIS",
+      "subtitle": "A modular architecture covering the entire perception-decision-action cycle.",
+      "items": [
+        {
+          "icon": "Eye",
+          "title": "Multimodal Perception",
+          "desc": "YOLOv8 + MediaPipe to detect objects, estimate pose, and recognize 10+ human gestures in real-time.",
+          "phase": "Data Input"
+        },
+        {
+          "icon": "Brain",
+          "title": "Predictive Intelligence",
+          "desc": "2D Kalman Filter and Time To Collision (TTC) calculation to anticipate movements, not just react.",
+          "phase": "Processing"
+        },
+        {
+          "icon": "Shield",
+          "title": "Safety with Hysteresis",
+          "desc": "Multi-class risk evaluation (human vs. pet) with adaptive thresholds and manual-reset E-STOP.",
+          "phase": "Decision"
+        },
+        {
+          "icon": "Cpu",
+          "title": "Concurrent Control",
+          "desc": "Separate thread architecture and Hardware Abstraction Layer (HAL) so vision never freezes.",
+          "phase": "Action"
+        },
+        {
+          "icon": "Radio",
+          "title": "Bidirectional Connectivity",
+          "desc": "WES-agnostic bridge via MQTT (VDA5050-inspired) and real-time Streamlit telemetry dashboard.",
+          "phase": "Supervision"
+        }
+      ]
+    },
+    "metrics": {
+      "title": "The Impact in Numbers",
+      "subtitle": "Real results from system performance and stability testing.",
+      "items": [
+        {
+          "value": "9-10",
+          "label": "FPS on CPU",
+          "sub": "Intel i5/i7 (no dedicated GPU)"
+        },
+        {
+          "value": "<100ms",
+          "label": "YOLOv8n Latency",
+          "sub": "Optimized inference"
+        },
+        {
+          "value": "<20%",
+          "label": "Depth Error",
+          "sub": "In the 1 to 3 meters range"
+        },
+        {
+          "value": "0",
+          "label": "State Oscillations",
+          "sub": "Thanks to hysteresis logic"
+        }
+      ]
+    },
+    "value": {
+      "title": "Real Impact on Your Operation",
+      "subtitle": "ARVIS is not just a vision script; it's a production-ready robotic safety platform.",
+      "items": [
+        {
+          "icon": "Briefcase",
+          "role": "For Operations Directors (COO)",
+          "desc": "Higher throughput and fluid navigation.",
+          "benefits": [
+            "25% reduction in unnecessary stops thanks to fluid evasion.",
+            "Proactive hazard detection before contact occurs.",
+            "Natural interaction with workers via gestures, no remote controls needed."
+          ]
+        },
+        {
+          "icon": "DollarSign",
+          "role": "For Financial Directors (CFO)",
+          "desc": "Democratization of safe autonomous robotics.",
+          "benefits": [
+            "Savings of $3,000-$5,000 per robot by eliminating LiDAR dependency.",
+            "Same code executable on PC, Raspberry Pi, or NVIDIA Jetson (HAL).",
+            "Reduced maintenance costs due to less motor wear (fewer harsh brakes)."
+          ]
+        },
+        {
+          "icon": "Monitor",
+          "role": "For IT Managers",
+          "desc": "Modern, decoupled, and scalable architecture.",
+          "benefits": [
+            "Vision pipeline separated from hardware control (thread-safe queues).",
+            "'Plug & Play' integration with any existing WMS/WES via MQTT.",
+            "Complete telemetry (FPS, latencies, risk) for system health monitoring."
+          ]
+        },
+        {
+          "icon": "Wrench",
+          "role": "For Maintenance Managers",
+          "desc": "Total visibility of real-time performance.",
+          "benefits": [
+            "Web dashboard with historical graphs of latency and FPS.",
+            "Early detection of performance bottlenecks (e.g., overheating).",
+            "Structured logs for post-incident debugging."
+          ]
+        }
+      ]
+    },
+    "usp": {
+      "title": "Why is ARVIS Unique?",
+      "subtitle": "We combine cutting-edge perception with classical robotics mathematical principles.",
+      "items": [
+        {
+          "icon": "Eye",
+          "title": "Contextual Awareness",
+          "desc": "It doesn't just detect 'something'. It knows if it's a human (gestures), a pet (unpredictable), or a static object."
+        },
+        {
+          "icon": "Activity",
+          "title": "Fluid Reactive Planning",
+          "desc": "Artificial Potential Fields (APF) with local minima resolution (vortex force) to evade without freezing."
+        },
+        {
+          "icon": "Shield",
+          "title": "Real Industrial Safety",
+          "desc": "Hysteresis to prevent oscillations and E-STOP requiring explicit manual reset, complying with safety standards."
+        },
+        {
+          "icon": "Cpu",
+          "title": "Hardware Agnostic (HAL)",
+          "desc": "Develop and test on your laptop with RobotMock, and deploy to Raspberry Pi or Jetson without changing AI logic."
+        }
+      ]
+    },
+    "aiPipeline": {
+      "title": "From Pixel to Safe Action",
+      "subtitle": "A low-latency concurrent pipeline that transforms raw data into mathematically proven evasion maneuvers.",
+      "steps": [
+        {
+          "icon": "Eye",
+          "title": "1. Multimodal Perception",
+          "tech": "YOLOv8 + MediaPipe",
+          "desc": "Detection of 80+ classes with persistent IDs (ByteTrack). MediaPipe extracts 33 landmarks to analyze gestures and detect falls."
+        },
+        {
+          "icon": "Activity",
+          "title": "2. Kinematic Prediction",
+          "tech": "2D Kalman Filter",
+          "desc": "Smooths detection noise. Calculates real velocity using actual Δt to predict future position and Time To Collision (TTC)."
+        },
+        {
+          "icon": "Brain",
+          "title": "3. Reactive Planning",
+          "tech": "Potential Fields (APF)",
+          "desc": "Treats destination as attraction and obstacles as repulsion. Includes tangential force (vortex) to resolve local minima and evade fluidly."
+        },
+        {
+          "icon": "Shield",
+          "title": "4. Safety with Hysteresis",
+          "tech": "RiskAnalyzer + E-STOP",
+          "desc": "Adaptive thresholds per class. Hysteresis eliminates robot 'dancing'. Industrial E-STOP requires manual reset (ISO 13850)."
+        }
+      ]
+    },
+    "industries": {
+      "title": "Real-World Use Cases",
+      "subtitle": "How ARVIS transforms navigation in dynamic and unstructured environments.",
+      "items": [
+        {
+          "icon": "Package",
+          "name": "Logistics & Warehouses",
+          "desc": "Fluid evasion of workers in aisles without stopping throughput. The robot yields if the worker raises a hand.",
+          "benefit": "+25% operational efficiency"
+        },
+        {
+          "icon": "Heart",
+          "name": "Healthcare & Hospitals",
+          "desc": "Patient fall detection in <200ms and immediate emergency protocol activation. Safe coexistence with therapy dogs.",
+          "benefit": "Early detection that saves lives"
+        },
+        {
+          "icon": "ShoppingCart",
+          "name": "Retail & Stores",
+          "desc": "Navigation in unstructured spaces between shopping carts and customers, using segmentation to understand irregular shapes.",
+          "benefit": "Navigation without floor markers"
+        },
+        {
+          "icon": "Truck",
+          "name": "Last-Mile Delivery",
+          "desc": "'Polite' sidewalk navigation. The robot understands pedestrian gestures (STOP_HAND, POINTING) and applies extra safety margins for pets.",
+          "benefit": "Higher public acceptance and safety"
+        },
+        {
+      "icon": "ConciergeBell",
+      "name": "Reception and Interactive Guides",
+      "desc": "Approach-intent detection and multi-visitor tracking. The robot interprets pointing (POINTING) and greeting (STOP_HAND) gestures to guide people through crowded environments, maintaining social distance and adapting its route in real time.",
+      "benefit": "Natural interaction without additional infrastructure"
+    },
+    {
+      "icon": "Home",
+      "name": "Home and Domestic Robotics",
+      "desc": "Robust navigation among toys, pets, and moving children. Segmentation of irregular objects and anomaly detection for security patrols, with adaptive safety margins for living beings.",
+      "benefit": "Adaptation to changing home environments"
+    }
+      ]
+    },
+    "comparison": {
+      "title": "ARVIS vs. Market Solutions",
+      "subtitle": "Why our software approach outperforms costly hardware dependencies.",
+      "items": [
+        {
+          "feature": "Sensor Hardware Cost",
+          "competitor": "$3,000 - $5,000 (LiDAR)",
+          "arvis": "$20 - $50 (RGB Camera)"
+        },
+        {
+          "feature": "Context Comprehension",
+          "competitor": "Only 'obstacle yes/no'",
+          "arvis": "Multimodal: Person, Pet, Gesture, Fall"
+        },
+        {
+          "feature": "Decision Making",
+          "competitor": "Rigid if/else rules",
+          "arvis": "Predictive (Kalman) and fluid (Potential Fields)"
+        },
+        {
+          "feature": "Human-Robot Interaction",
+          "competitor": "Physical buttons or screens",
+          "arvis": "Natural (gesture and gaze recognition)"
+        },
+        {
+          "feature": "Safety Philosophy",
+          "competitor": "Dangerous automatic resumption",
+          "arvis": "E-STOP with manual lock and hysteresis"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "Bidirectional Telemetry & Control",
+      "subtitle": "The robot is not a black box. Supervise and control every aspect of its operation in real-time.",
+      "features": [
+        { "icon": "Radio", "title": "Standard MQTT (VDA5050-inspired)", "desc": "Publishes state and listens to commands. Integrable with SAP, Oracle, or any WES without modifying robot code." },
+        { "icon": "Activity", "title": "Live Web Dashboard", "desc": "Visualization of critical KPIs: Risk Level, Distance, FPS, YOLO/MediaPipe Latencies, and event logging." },
+        { "icon": "Shield", "title": "Remote Control (Override)", "desc": "EMERGENCY_STOP, RESUME, and RETURN_HOME buttons for the operator to take control in case of any anomaly." },
+        { "icon": "FileSearch", "title": "Auditing & Early Detection", "desc": "Historical evolution graphs that allow detecting performance bottlenecks before they affect robot safety." }
+      ]
+    },
+    "validation": {
+      "title": "Real Test Results",
+      "subtitle": "Metrics validated in dynamic navigation scenarios.",
+      "featured": {
+        "label": "FEATURED TEST",
+        "title": "Walking Person Evasion",
+        "problem": "Person walking towards the robot at 1.5m/s in an aisle.",
+        "solution": "Detection at 2.5m, smooth braking at 1.5m (Kalman), and fluid lateral evasion at 1.2m using Potential Fields with vortex force.",
+        "value": "0 collisions, 120ms reaction time, organic trajectory"
+      },
+      "items": [
+        {
+          "number": "02",
+          "icon": "Heart",
+          "title": "Fall Detection",
+          "problem": "Person simulating a fall in front of the robot.",
+          "solution": "MediaPipe detects abnormal torso angle. Immediate EMERGENCY_STOP activation and log alert.",
+          "value": "100% detection in 50 tests, <200ms reaction"
+        },
+        {
+          "number": "03",
+          "icon": "Hand",
+          "title": "Gesture Interaction",
+          "problem": "User blocking the path and pointing (POINTING) for the robot to yield.",
+          "solution": "Gesture recognized in 200ms. The robot evaluates context and executes automatic lateral evasion.",
+          "value": "85% accuracy in real-time gesture recognition"
+        },
+        {
+          "number": "04",
+          "icon": "Cat",
+          "title": "Pet Coexistence",
+          "problem": "Cat crossing the robot's path at close range.",
+          "solution": "Classified as 'pet'. RiskAnalyzer applies conservative thresholds, triggering immediate EMERGENCY_STOP.",
+          "value": "100% detection, 80ms reaction time"
+        }
+      ]
+    },
+    "whyArvis": {
+      "title": "Hybrid Concurrent Architecture",
+      "subtitle": "Designed for robustness, not just for demonstration.",
+      "desc": "We strictly separate Perception/Decision (high-priority main thread) from Hardware Control (secondary thread) and Telemetry (asynchronous background thread).",
+      "dimensions": [
+        {
+          "icon": "Cpu",
+          "title": "Thread-Safe Queues",
+          "desc": "Vision never freezes waiting for hardware. Communication via queue.Queue to prevent race conditions."
+        },
+        {
+          "icon": "Shield",
+          "title": "Hardware Abstraction Layer (HAL)",
+          "desc": "Unified interface (go, stop, turn) implemented by RobotMock (with simulated latency) and ready for RobotReal (GPIO/Serial)."
+        },
+        {
+          "icon": "Radio",
+          "title": "Decoupled Pub/Sub",
+          "desc": "The robot doesn't know who controls it. WES, Dashboard, or external scripts subscribe to its MQTT topics without modifying its core."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Future-Ready (ROS 2 / Edge)",
+          "desc": "Separation of responsibilities facilitates migration to ROS 2 nodes and optimization with TensorRT/ONNX for Jetson."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to give your robot contextual awareness?",
+      "description": "From perception to safe action. Edge Computing deployment ready for production.",
+      "btnGithub": "View Code on GitHub",
+      "btnDocs": "Architecture Documentation",
+      "btnContact": "Contact Me",
+      "trustText": "Want to see a live demo of the AI pipeline or discuss an integration with your fleet? Write to me directly."
+    },
+    "footer": {
+      "brandName": "ARVIS",
+      "brandTagline": "Autonomous Robot Vision & Intelligence System",
+      "mission": "Reference system for safe autonomous navigation, combining multimodal perception, mathematical planning, and industrial communication protocols.",
+      "sustainabilityBadge": "Edge Ready",
+      "navTitle": "Explore",
+      "navHome": "Home",
+      "navPipeline": "AI Pipeline",
+      "navDashboard": "Dashboard",
+      "resourcesTitle": "Resources",
+      "resourceDocs": "Technical Documentation",
+      "resourceAiBreakdown": "AI Breakdown",
+      "connectTitle": "Connect",
+      "locationPrefix": "Developed by",
+      "locationCity": "Victor Camacaro",
+      "locationSuffix": "Robotics Software Engineering",
+      "email": "victorcamacaro253@gmail.com",
+      "copyright": "© {year} Victor Camacaro. All rights reserved.",
+      "devNotePrefix": "Built with",
+      "devNoteSuffix": "Python, OpenCV, YOLOv8, MediaPipe, and MQTT"
+    }
+  }
+}
+
+}
